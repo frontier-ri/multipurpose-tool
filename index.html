@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <body id="body" class="container">
+        <div class="row">
+            <div class="col-12 mt-3">
+                <h1>DB更新作業用 便利機能</h1>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="cart-title">calc host_position</h5>
+                        <div class="form-group">
+                            <label for="targetGene">Gene Position</label>
+                            <input type="text" class="form-control" id="targetGene">
+                            <small id="targetGeneHelp" class="forn-text text-muted">ex) "42977249..42977377"</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="hostGene">Host Gene Position</label>
+                            <input type="text" class="form-control" id="hostGene">
+                            <small id="hostGeneHelp" class="forn-text text-muted">ex) "42977249..42977377"</small>
+                        </div>
+                        <button id="calculateHostPosition" class="btn btn-primary btn-block mt-3"
+                            onclick="calculateHostPosition()">
+                            Calculate
+                        </button>
+
+                        <div class="form-group">
+                            <label for="hostGenePos">Position</label>
+                            <input type="text" class="form-control" id="hostGenePos">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</body>
+<script type="text/javascript">
+    function calculateHostPosition() {
+        const targetGenePosition = document.getElementById("targetGene").value;
+        const hostGenePosition = document.getElementById("hostGene").value;
+    
+        const targetGenePositionSplit = targetGenePosition.split("..");
+        const hostGenePositionSplit = hostGenePosition.split("..");
+        console.log(targetGenePosition);
+
+        const hostGeneStart = Number(hostGenePositionSplit[0]);
+        const start = Number(targetGenePositionSplit[0]) - hostGeneStart;
+        const end = Number(targetGenePositionSplit[1]) - hostGeneStart;
+
+        const result = String(start) + ".." + String(end);
+        document.getElementById("hostGenePos").value = result;
+        document.getElementById("hostGenePos").select();
+        document.execCommand("Copy");
+    }
+
+</script>
+</html>
