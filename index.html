@@ -15,7 +15,7 @@
     <body id="body" class="container">
         <div class="row">
             <div class="col-12 mt-3">
-                <h1>DB更新作業用 便利機能</h1>
+                <h1>DB更新作業用 便利ツール</h1>
             </div>
             <div class="col-12 mt-3">
                 <div class="card">
@@ -29,7 +29,7 @@
                         <div class="form-group">
                             <label for="hostGene">Host Gene Position</label>
                             <input type="text" class="form-control" id="hostGene">
-                            <small id="hostGeneHelp" class="forn-text text-muted">ex) "42977249..42977377"</small>
+                            <small id="hostGeneHelp" class="forn-text text-muted">ex) "42967249..42997377"</small>
                         </div>
                         <button id="calculateHostPosition" class="btn btn-primary btn-block mt-3"
                             onclick="calculateHostPosition()">
@@ -39,7 +39,10 @@
                         <div class="form-group">
                             <label for="hostGenePos">Position</label>
                             <input type="text" class="form-control" id="hostGenePos">
-
+                        </div>
+                        <div class="form-group">
+                            <label for="geneLength">Length</label>
+                            <input type="text" class="form-control" id="geneLength" disabled>
                         </div>
                     </div>
                 </div>
@@ -84,6 +87,7 @@
 
         const result = String(start) + ".." + String(end);
         document.getElementById("hostGenePos").value = result;
+        document.getElementById("geneLength").value = end - start + 1;
         document.getElementById("hostGenePos").select();
         document.execCommand("Copy");
     }
