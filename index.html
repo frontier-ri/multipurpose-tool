@@ -44,6 +44,28 @@
                     </div>
                 </div>
             </div>
+            <div class="col-12 mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="cart-title">Asterisk(*) counter</h5>
+                        <div class="form-group">
+                            <label for="targetString">String</label>
+                            <textarea class="form-control" rows="6" id="targetString"
+                                placeholder="Input here..."></textarea>
+                        </div>
+                        <button id="countAsteriskNum" class="btn btn-primary btn-block mt-3"
+                            onclick="countAsteriskNum()">
+                            Count
+                        </button>
+
+                        <div class="form-group">
+                            <label for="asteriskNum">Result</label>
+                            <input type="text" class="form-control" id="asteriskNum" disabled>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </body>
@@ -51,7 +73,7 @@
     function calculateHostPosition() {
         const targetGenePosition = document.getElementById("targetGene").value;
         const hostGenePosition = document.getElementById("hostGene").value;
-    
+
         const targetGenePositionSplit = targetGenePosition.split("..");
         const hostGenePositionSplit = hostGenePosition.split("..");
         console.log(targetGenePosition);
@@ -66,5 +88,18 @@
         document.execCommand("Copy");
     }
 
+    function countAsteriskNum() {
+        const targetString = document.getElementById("targetString").value;
+
+        let counter = 0;
+        for (let i = 0; i < targetString.length; i++) {
+            if (targetString[i] === "*") {
+                counter++;
+            }
+        }
+        document.getElementById("asteriskNum").value = counter;
+    }
+
 </script>
+
 </html>
