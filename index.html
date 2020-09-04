@@ -82,8 +82,8 @@
         console.log(targetGenePosition);
 
         const hostGeneStart = Number(hostGenePositionSplit[0]);
-        const start = Number(targetGenePositionSplit[0]) - hostGeneStart;
-        const end = Number(targetGenePositionSplit[1]) - hostGeneStart;
+        const start = Number(targetGenePositionSplit[0]) - hostGeneStart + 1;
+        const end = Number(targetGenePositionSplit[1]) - hostGeneStart + 1;
 
         const result = String(start) + ".." + String(end);
         document.getElementById("hostGenePos").value = result;
