@@ -64,8 +64,21 @@
                         <div class="form-group">
                             <label for="asteriskNum">Result</label>
                             <input type="text" class="form-control" id="asteriskNum" disabled>
-
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="cart-title">Open gene page from ncbi gene name</h5>
+                        <div class="form-group">
+                            <label for="geneName">NCBI gene name</label>
+                            <input type="text" class="form-control" id="geneName">
+                        </div>
+                        <button id="openPage" class="btn btn-primary btn-block mt-3" onclick="openNcbiPage()">
+                            Open
+                        </button>
                     </div>
                 </div>
             </div>
@@ -102,6 +115,12 @@
             }
         }
         document.getElementById("asteriskNum").value = counter;
+    }
+
+    function openNcbiPage() {
+        let geneId = document.getElementById("geneName").value.slice(3);
+        console.log(geneId);
+        window.open("https://www.ncbi.nlm.nih.gov/gene/" + geneId, "_blank");
     }
 
 </script>
