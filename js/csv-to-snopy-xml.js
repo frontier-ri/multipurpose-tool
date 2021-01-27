@@ -100,8 +100,8 @@ function createSnoXmlString(data) {
     }
 
     /**** xml 生成 ****/
-    const xmlDoc = document.implementation.createDocument(null, "snopy");
-    const elements = xmlDoc.getElementsByTagName("snopy");
+    const xmlDoc = document.implementation.createDocument(null, "snoopy");
+    const elements = xmlDoc.getElementsByTagName("snoopy");
     for (let i = 0; i < expectedKeys.length; i++) {
         const key = expectedKeys[i];
         let node;
