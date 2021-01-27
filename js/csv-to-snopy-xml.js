@@ -95,7 +95,7 @@ function createSnoXmlString(data) {
         }
     }
     if (0 < lostValues.length) {
-        console.log("On function 'createSnoXml', expected below data\n" + JSON.stringify(lostValues));
+        console.error("On function 'createSnoXml', expected below data but not found\n" + JSON.stringify(lostValues));
         return null;
     }
 
